@@ -18,5 +18,6 @@ Compile the project in development mode:
 npm run dev
 ```
 
-![image](https://github.com/user-attachments/assets/4205af2e-0fa5-4263-b9fc-48c9bfc68743)
+![image](https://github.com/user-attachments/assets/50a63505-4b4c-4298-827a-dd7f3b1bad9c)
+
 
