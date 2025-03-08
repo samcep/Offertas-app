@@ -23,14 +23,17 @@ watch(
         const detailInformation  : OfferResponse = offerStore.offersIndex.get(props.id)!;
         characteristics.value = detailInformation.characteristics;
         productOfferingPrice.value  = detailInformation.productOfferingPrices
+      }else{
+        characteristics.value = []
+        productOfferingPrice.value = []
       }
   },
+  { immediate: true }
 );
 
 </script>
 <template>
-  <div class="grid grid-cols-2 gap-4">
-    <div class="bg-white p-4 shadow-md rounded-lg">
+    <div class="bg-gray-100 p-4 shadow-md rounded-lg">
       <h2 class="text-lg font-bold">Caracteristicas</h2>
       <Characteristics :characteristics="characteristics"></Characteristics>
     </div>
@@ -38,15 +41,5 @@ watch(
       <h2 class="text-lg font-bold">Precios</h2>
       <Prices :product-offering-prices="productOfferingPrice"></Prices>
     </div>
-  </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>

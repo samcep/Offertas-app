@@ -8,10 +8,13 @@ import OfferService from '@/services/offerService'
 
 export const useOfferStore = defineStore('offer', () => {
   const offersIndex = ref<Map<string, OfferResponse>>(new Map());
+  const isLoading = ref<boolean>(false);
   const offersSelectHTML = ref<OfferSelectHTML[]>([]);
   const loadOffers = async () => {
+    isLoading.value = true
     offersIndex.value = await OfferService.setOffers()
     setOffersAsSelectHTML();
+    isLoading.value = false
   }
 
   const setOffersAsSelectHTML = () => {
@@ -22,5 +25,5 @@ export const useOfferStore = defineStore('offer', () => {
     }
   };
 
-  return {  loadOffers  , offersIndex ,  offersSelectHTML}
+  return {  loadOffers  , offersIndex ,  offersSelectHTML , isLoading}
 })
